@@ -1,7 +1,7 @@
 #asterisk from ubuntu 
 #
 
-FROM dockerfile/ubuntu
+FROM dockerfile/ubuntu-14.04
 
 #maintainer
 MAINTAINER Achyut Devkota "achyut.devkota@yipl.com.np"
