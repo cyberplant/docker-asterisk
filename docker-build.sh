@@ -6,4 +6,4 @@ docker rmi -f $(docker images | grep "^<none>" | awk '{print $3}')
 docker rmi  achyutdev/docker-asterisk
 
 #build Docker image
-docker build -rm -t achyutdev/docker-asterisk
+docker build -rm -t achyutdev/docker-asterisk .
