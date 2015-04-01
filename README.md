@@ -3,12 +3,12 @@ This docker file install certified-asterisk-13 in _ubuntu platform. Run follow c
 
 #####build docker file 
 
-```bash sh docker-build.sh ```
+``` sh docker-build.sh ```
 	
 #####run docker 
 
-```bash sh docker-run.sh```
+``` sh docker-run.sh```
 
 #####verify process is running or not
 
-```bash	docker ps ```
+```	docker ps ```
