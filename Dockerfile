@@ -8,7 +8,7 @@ MAINTAINER Achyut Devkota "achyut.devkota@yipl.com.np"
 
 #downloading dependencies
 RUN echo 'Installing dependencies'
-RUN apt-get install build-essential wget libssl-dev libncurses5-dev  libnewt-dev  libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev libjansson-dev
+RUN apt-get install build-essential wget libssl-dev libncurses5-dev  libnewt-dev  libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev libjansson-dev subversion
 #Download asterisk 
 RUN cd /usr/src/
 RUN wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
