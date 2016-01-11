@@ -39,5 +39,4 @@ RUN cd /usr/src/certified-asterisk-13.1-cert* && \
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/*
 
-ADD entrypoint.sh /sbin/entrypoint.sh
-CMD /sbin/entrypoint.sh
+CMD /usr/sbin/asterisk -vvvvd
