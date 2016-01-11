@@ -1,14 +1,17 @@
-#Docker - Asterisk
-This docker file install certified-asterisk-13 in _ubuntu platform. Run follow commend in terminal and it's all done.
+# Dockerized Asterisk
 
-#####build docker file 
+This is a dockerized version of [asterisk](http://www.asterisk.org).
 
-``` sh docker-build.sh ```
-	
-#####run docker 
+# What is asterisk?
 
-``` sh docker-run.sh```
+According to www.asterisk.org:
 
-#####verify process is running or not
+Asterisk is an open source framework for building communications applications. Asterisk turns an ordinary computer into a communications server.
 
-```	docker ps ```
+# How can I use this docker image?
+
+```
+
+docker run -d --name asterisk -v <config directory>:/etc/asterisk luar/asterisk
+
+```
