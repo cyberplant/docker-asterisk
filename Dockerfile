@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:sid
 
 # MAINTAINER Achyut Devkota "achyut.devkota@yipl.com.np"
 MAINTAINER Luar Roji "cyberplant@roji.net"
@@ -15,7 +15,7 @@ RUN cd /usr/src/ && wget \
     http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.10.2+2.10.2.tar.gz \
     http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.4-current.tar.gz \
     http://downloads.asterisk.org/pub/telephony/libss7/libss7-2.0-current.tar.gz \
-    http://downloads.asterisk.org/pub/telephony/certified-asterisk/certified-asterisk-13.1-current.tar.gz \
+    http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz \
     https://github.com/asterisk/pjproject/archive/master.zip && \
     for i in *tar.gz; do tar xvfz $i; rm $i; done && unzip master.zip && rm master.zip
 
@@ -26,10 +26,11 @@ RUN cd /usr/src/pjproject-master && \
     ./configure --enable-shared --prefix=/usr --libdir=/usr/lib \
                 --disable-sound --disable-resample \
                 --disable-video --disable-opencore-amr \
+                --disable-ssl \
                 CFLAGS='-O2 -DNDEBUG' && \
     make dep && make && make install
 
-RUN cd /usr/src/certified-asterisk-13.1-cert* && \
+RUN cd /usr/src/asterisk-13* && \
     ./configure && \
     make menuselect.makeopts && \
     menuselect/menuselect --list-options && \
