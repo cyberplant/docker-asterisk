@@ -1,6 +1,5 @@
-FROM debian:sid
+FROM ubuntu
 
-# MAINTAINER Achyut Devkota "achyut.devkota@yipl.com.np"
 MAINTAINER Luar Roji "cyberplant@roji.net"
 
 RUN apt-get update && apt-get -fy install build-essential wget libssl-dev \
