@@ -11,8 +11,8 @@ RUN apt-get update && apt-get -fy install build-essential wget libssl-dev \
 # http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz \
 
 RUN cd /usr/src/ && wget \
-    http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.10.2+2.10.2.tar.gz \
-    http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.4-current.tar.gz \
+    http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.11.1+2.11.1.tar.gz \
+    http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz \
     http://downloads.asterisk.org/pub/telephony/libss7/libss7-2.0-current.tar.gz \
     http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz && \
     for i in *tar.gz; do tar xvfz $i; rm $i; done
