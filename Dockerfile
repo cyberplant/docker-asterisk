@@ -14,23 +14,15 @@ RUN cd /usr/src/ && wget \
     http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.10.2+2.10.2.tar.gz \
     http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.4-current.tar.gz \
     http://downloads.asterisk.org/pub/telephony/libss7/libss7-2.0-current.tar.gz \
-    http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz \
-    https://github.com/asterisk/pjproject/archive/master.zip && \
-    for i in *tar.gz; do tar xvfz $i; rm $i; done && unzip master.zip && rm master.zip
+    http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz && \
+    for i in *tar.gz; do tar xvfz $i; rm $i; done
 
 RUN cd /usr/src/dahdi-linux* && make && make install && make config
 RUN cd /usr/src/libpri* && make && make install
 RUN cd /usr/src/libss7* && make && make install
-RUN cd /usr/src/pjproject-master && \
-    ./configure --enable-shared --prefix=/usr --libdir=/usr/lib \
-                --disable-sound --disable-resample \
-                --disable-video --disable-opencore-amr \
-                --disable-ssl \
-                CFLAGS='-O2 -DNDEBUG' && \
-    make dep && make && make install
 
 RUN cd /usr/src/asterisk-13* && \
-    ./configure && \
+    ./configure --with-pjproject-bundled && \
     make menuselect.makeopts && \
     menuselect/menuselect --list-options && \
     make && \
